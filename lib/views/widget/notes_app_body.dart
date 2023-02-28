@@ -9,7 +9,7 @@ class NotesAppBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: const [
-        CustomAppBar(),
+        CustomAppBar(text: 'Notes',icon: Icons.search,),
         NoteList(),
       ],
     );

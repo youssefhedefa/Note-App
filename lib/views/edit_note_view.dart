@@ -10,7 +10,10 @@ class EditNoteView extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: const [
-          CustomAppBar(),
+          CustomAppBar(
+            text: 'Edit Note',
+            icon: Icons.done,
+          ),
           Padding(
             padding: EdgeInsets.only(
               top: 32,
