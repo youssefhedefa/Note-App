@@ -9,13 +9,17 @@ class NoteList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: ListView.builder(
-        physics: const BouncingScrollPhysics(),
-        itemBuilder: (context, index) =>  Padding(
-          padding: const EdgeInsets.symmetric(vertical: 4),
-          child: NoteItem(color: pickColor[index%4],),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 14),
+        child: ListView.builder(
+          padding: EdgeInsets.zero,
+          physics: const BouncingScrollPhysics(),
+          itemBuilder: (context, index) =>  Padding(
+            padding: const EdgeInsets.symmetric(vertical: 4),
+            child: NoteItem(color: pickColor[index%4],),
+          ),
+          itemCount: 20,
         ),
-        itemCount: 20,
       ),
     );
   }

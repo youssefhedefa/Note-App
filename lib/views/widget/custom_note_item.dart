@@ -13,7 +13,7 @@ class NoteItem extends StatelessWidget {
         padding: const EdgeInsets.only(
             left: 16,
             top: 24,
-            bottom: 24
+            bottom: 20
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
@@ -40,7 +40,7 @@ class NoteItem extends StatelessWidget {
                   // overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: Colors.black.withOpacity(0.5),
-                    fontSize: 20,
+                    fontSize: 18,
                   ),
 
                 ),
@@ -63,7 +63,7 @@ class NoteItem extends StatelessWidget {
                 ),
 
               ),
-            ),
+            ), //date
           ],
         ),
       ),
