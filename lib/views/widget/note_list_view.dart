@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:note_app/views/edit_note_view.dart';
 
 import 'custom_note_item.dart';
 
@@ -16,7 +17,15 @@ class NoteList extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           itemBuilder: (context, index) =>  Padding(
             padding: const EdgeInsets.symmetric(vertical: 4),
-            child: NoteItem(color: pickColor[index%4],),
+            child: GestureDetector(
+              onTap: ()
+              {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return const EditNoteView();
+                }));
+              },
+                child: NoteItem(color: pickColor[index%4],)
+            ),
           ),
           itemCount: 20,
         ),
