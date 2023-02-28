@@ -10,7 +10,9 @@ class CustomTextField extends StatelessWidget {
         this.fontSize,
         this.color,
         this.borderRadius,
-        this.textEditingController})
+        this.textEditingController,
+        this.hint = '',
+      })
       : super(key: key);
 
   final String label;
@@ -19,6 +21,7 @@ class CustomTextField extends StatelessWidget {
   final Color? color;
   final double? borderRadius;
   final TextEditingController? textEditingController;
+  final String hint;
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +39,7 @@ class CustomTextField extends StatelessWidget {
             fontSize: fontSize ?? 18,
           ),
         ),
+        hintText: hint ,
         focusedBorder: const OutlineInputBorder(
           borderSide: BorderSide(color: primaryColor),
         ),
