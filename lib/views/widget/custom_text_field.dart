@@ -14,6 +14,7 @@ class CustomTextField extends StatelessWidget {
         this.hint = '',
         this.onSaved,
         this.validator,
+        this.keyboardType,
       })
       : super(key: key);
 
@@ -26,6 +27,7 @@ class CustomTextField extends StatelessWidget {
   final String hint;
   final void Function(String?)? onSaved;
   final String? Function(String?)? validator;
+  final TextInputType? keyboardType;
 
 @override
   Widget build(BuildContext context) {
@@ -36,6 +38,7 @@ class CustomTextField extends StatelessWidget {
       expands: expand,
       onSaved: onSaved,
       validator: validator,
+      keyboardType: keyboardType,
 
       decoration: InputDecoration(
         label: Text(
