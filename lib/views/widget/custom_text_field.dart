@@ -12,6 +12,8 @@ class CustomTextField extends StatelessWidget {
         this.borderRadius,
         this.textEditingController,
         this.hint = '',
+        this.onSaved,
+        this.validator,
       })
       : super(key: key);
 
@@ -22,14 +24,18 @@ class CustomTextField extends StatelessWidget {
   final double? borderRadius;
   final TextEditingController? textEditingController;
   final String hint;
+  final void Function(String?)? onSaved;
+  final String? Function(String?)? validator;
 
-  @override
+@override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: textEditingController ?? TextEditingController(),
       minLines: null,
       maxLines: null,
       expands: expand,
+      onSaved: onSaved,
+      validator: validator,
 
       decoration: InputDecoration(
         label: Text(

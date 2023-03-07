@@ -1,13 +1,14 @@
-
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
+
 class CustomButton extends StatelessWidget {
-  const CustomButton({Key? key}) : super(key: key);
+  const CustomButton({Key? key, this.onPressed}) : super(key: key);
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
+    return Container(
       width: MediaQuery.of(context).size.width,
       height: 55,
       decoration: BoxDecoration(
@@ -15,7 +16,7 @@ class CustomButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       child: TextButton(
-        onPressed: () {},
+        onPressed: onPressed,
         child: const Text(
           'Add',
           style: TextStyle(
