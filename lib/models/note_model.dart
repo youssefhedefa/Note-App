@@ -9,5 +9,4 @@ class NoteModel {
       required this.subTitle,
       required this.date,
       required this.color});
-
 }
