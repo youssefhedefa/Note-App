@@ -5,11 +5,11 @@ import 'package:note_app/views/constants.dart';
 
 part 'add_notes_states.dart';
 
-class NotesCubit extends Cubit<AddNotesStates>
+class AddNotesCubit extends Cubit<AddNotesStates>
 {
-  NotesCubit() : super(AddNotesInitial());
-  addNote(NoteModel note)
-  async {
+  AddNotesCubit() : super(AddNotesInitial());
+  addNote(NoteModel note) async
+  {
     emit(AddNotesLoading());
     try
     {
