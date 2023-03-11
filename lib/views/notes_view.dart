@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:note_app/views/constants.dart';
 import 'package:note_app/views/widget/add_note_bottom_sheet.dart';
@@ -15,6 +16,7 @@ class NotesView extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
+            isScrollControlled: true,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(18),
               ),
