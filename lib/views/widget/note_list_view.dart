@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:note_app/cubit/note_view_cubit/note_view_cubit.dart';
 import 'package:note_app/cubit/note_view_cubit/note_view_state.dart';
+import 'package:note_app/models/note_model.dart';
 import 'package:note_app/views/edit_note_view.dart';
 
 import 'custom_note_item.dart';
@@ -12,6 +13,9 @@ class NoteList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    List<NoteModel> notes = BlocProvider.of<NoteViewCubit>(context).notes;
+
     return BlocBuilder<NoteViewCubit,NoteViewState>(
       builder: (BuildContext context, state) => Expanded(child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 14),
@@ -30,7 +34,9 @@ class NoteList extends StatelessWidget {
                 child: NoteItem(color: pickColor[index%4],)
             ),
           ),
-          itemCount: state is NoteViewSuccessState ? state.notes.length : 0,
+          //itemCount: state is NoteViewSuccessState ? state.notes.length : 0,
+          itemCount: notes.length,
+
         ),
       ),)
     );
