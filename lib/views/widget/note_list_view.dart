@@ -31,7 +31,10 @@ class NoteList extends StatelessWidget {
                     return const EditNoteView();
                   }));
                 },
-                child: NoteItem(color: pickColor[index%4],)
+                child: NoteItem(
+                  note: notes[index],
+                  color: pickColor[index%4],
+                )
             ),
           ),
           //itemCount: state is NoteViewSuccessState ? state.notes.length : 0,
