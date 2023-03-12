@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:note_app/cubit/note_view_cubit/note_view_cubit.dart';
+import 'package:note_app/cubit/note_view_cubit/note_view_state.dart';
 import 'package:note_app/views/edit_note_view.dart';
 
 import 'custom_note_item.dart';
@@ -9,8 +12,8 @@ class NoteList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
+    return BlocBuilder<NoteViewCubit,NoteViewState>(
+      builder: (BuildContext context, state) => Expanded(child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 14),
         child: ListView.builder(
           padding: EdgeInsets.zero,
@@ -18,18 +21,18 @@ class NoteList extends StatelessWidget {
           itemBuilder: (context, index) =>  Padding(
             padding: const EdgeInsets.symmetric(vertical: 4),
             child: GestureDetector(
-              onTap: ()
-              {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const EditNoteView();
-                }));
-              },
+                onTap: ()
+                {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const EditNoteView();
+                  }));
+                },
                 child: NoteItem(color: pickColor[index%4],)
             ),
           ),
-          itemCount: 20,
+          itemCount: state is NoteViewSuccessState ? state.notes.length : 0,
         ),
-      ),
+      ),)
     );
   }
 }
