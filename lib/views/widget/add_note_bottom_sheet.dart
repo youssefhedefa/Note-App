@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:note_app/cubit/add_note_cubit/add_notes_cubit.dart';
 import 'package:note_app/cubit/note_view_cubit/note_view_cubit.dart';
 import 'add_note_form.dart';
@@ -13,7 +14,7 @@ class AddNoteBottomSheet extends StatelessWidget {
       create: (context) => AddNotesCubit(),
       child: Padding(
         padding:
-            const EdgeInsets.only(left: 12, right: 12, bottom: 16, top: 28),
+             EdgeInsets.only(left: 12.w, right: 12.w, bottom: 16.h, top: 28.h),
         child: BlocConsumer<AddNotesCubit, AddNotesStates>(
           listener: (context, state) {
             if (state is AddNotesSuccess) {

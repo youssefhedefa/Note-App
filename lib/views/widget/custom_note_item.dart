@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:note_app/cubit/note_view_cubit/note_view_cubit.dart';
 import 'package:note_app/models/note_model.dart';
 
@@ -11,9 +12,9 @@ class NoteItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Container(
-        padding: const EdgeInsets.only(left: 16, top: 24, bottom: 20),
+        padding: EdgeInsets.only(left: 16.w, top: 24.h, bottom: 20.h),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
           color: color,
@@ -26,20 +27,20 @@ class NoteItem extends StatelessWidget {
                 note.title,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
+                style: TextStyle(
                   color: Colors.black,
-                  fontSize: 26,
+                  fontSize: 26.sp,
                 ),
               ),
               subtitle: Padding(
-                padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
+                padding: EdgeInsets.only(top: 10.0.h, bottom: 10.0.h),
                 child: Text(
                   note.subTitle,
                   // maxLines: 3,
                   // overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: Colors.black.withOpacity(0.5),
-                    fontSize: 18,
+                    fontSize: 18.sp,
                   ),
                 ),
               ),
@@ -48,19 +49,19 @@ class NoteItem extends StatelessWidget {
                     note.delete();
                     BlocProvider.of<NoteViewCubit>(context).fetchNotes();
                   },
-                  icon: const Icon(
+                  icon: Icon(
                     Icons.delete,
                     color: Colors.black,
-                    size: 30,
+                    size: 30.sp,
                   )),
             ),
             Padding(
-              padding: const EdgeInsets.only(right: 24.0),
+              padding: EdgeInsets.only(right: 24.0.w),
               child: Text(
                 note.date,
                 style: TextStyle(
                   color: Colors.black.withOpacity(0.5),
-                  fontSize: 16,
+                  fontSize: 16.sp,
                 ),
               ),
             ), //date

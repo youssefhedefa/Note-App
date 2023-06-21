@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:note_app/cubit/add_note_cubit/add_notes_cubit.dart';
 import 'package:note_app/models/note_model.dart';
@@ -28,7 +29,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(bottom: 16),
+            padding: EdgeInsets.only(bottom: 16.h),
             child: CustomTextField(
               label: 'Title',
               onSaved: (value) {
@@ -44,9 +45,9 @@ class _AddNoteFormState extends State<AddNoteForm> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(bottom: 24),
+            padding: EdgeInsets.only(bottom: 24.h),
             child: SizedBox(
-              height: 120,
+              height: 120.h,
               child: CustomTextField(
                 label: 'Description',
                 expand: true,
@@ -63,8 +64,8 @@ class _AddNoteFormState extends State<AddNoteForm> {
               ),
             ),
           ),
-          const SizedBox(
-            height: 48,
+          SizedBox(
+            height: 48.h,
           ),
           CustomButton(
             onPressed: () {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:note_app/cubit/note_view_cubit/note_view_cubit.dart';
 import 'package:note_app/cubit/note_view_cubit/note_view_state.dart';
 import 'package:note_app/views/edit_note_view.dart';
@@ -16,12 +17,12 @@ class NoteList extends StatelessWidget {
 
     return BlocBuilder<NoteViewCubit,NoteViewState>(
       builder: (BuildContext context, state) => Expanded(child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 14),
+        padding: EdgeInsets.symmetric(vertical: 14.h),
         child: ListView.builder(
           padding: EdgeInsets.zero,
           physics: const BouncingScrollPhysics(),
           itemBuilder: (context, index) =>  Padding(
-            padding: const EdgeInsets.symmetric(vertical: 4),
+            padding: EdgeInsets.symmetric(vertical: 4.h),
             child: GestureDetector(
                 onTap: ()
                 {

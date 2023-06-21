@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:note_app/models/note_model.dart';
 import 'package:note_app/views/constants.dart';
@@ -8,7 +9,6 @@ import 'bloc_observer.dart';
 import 'cubit/note_view_cubit/note_view_cubit.dart';
 
 void main() async {
-
   await Hive.initFlutter();
   Hive.registerAdapter(NoteModelAdapter());
   await Hive.openBox<NoteModel>(kNotesBox);
@@ -24,18 +24,23 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => NoteViewCubit()..fetchNotes(),
-      child: MaterialApp(
-        title: 'Notes',
-        theme: ThemeData(
-          primarySwatch: primaryColor,
-          brightness: Brightness.dark,
-          fontFamily: 'Poppins',
-
-        ),
-        debugShowCheckedModeBanner: false,
-        home: const NotesView(),
+      child: ScreenUtilInit(
+        designSize: const Size(360, 690),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (BuildContext context, Widget? child) {
+          return MaterialApp(
+            title: 'Notes',
+            theme: ThemeData(
+              primarySwatch: primaryColor,
+              brightness: Brightness.dark,
+              fontFamily: 'Poppins',
+            ),
+            debugShowCheckedModeBanner: false,
+            home: const NotesView(),
+          );
+        },
       ),
     );
   }
 }
-

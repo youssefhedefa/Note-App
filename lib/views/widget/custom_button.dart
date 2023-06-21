@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../constants.dart';
 
@@ -10,18 +11,18 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: 55,
+      height: 55.h,
       decoration: BoxDecoration(
         color: primaryColor,
         borderRadius: BorderRadius.circular(10),
       ),
       child: TextButton(
         onPressed: onPressed,
-        child: const Text(
+        child: Text(
           'Add',
           style: TextStyle(
             color: Colors.black,
-            fontSize: 16,
+            fontSize: 16.sp,
           ),
         ),
       ),

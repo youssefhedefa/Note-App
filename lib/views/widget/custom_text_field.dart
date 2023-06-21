@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../constants.dart';
 
@@ -46,7 +47,7 @@ class CustomTextField extends StatelessWidget {
           label,
           style: TextStyle(
             color: color ?? primaryColor,
-            fontSize: fontSize ?? 18,
+            fontSize: fontSize ?? 18.sp,
           ),
         ),
         hintText: hint,

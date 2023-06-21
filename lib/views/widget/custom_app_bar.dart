@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({Key? key, required this.text, required this.icon, this.onPressed}) : super(key: key);
@@ -10,17 +11,17 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsetsDirectional.only(
-        start: 16,
-        end: 16,
-        top: 34,
+      padding: EdgeInsetsDirectional.only(
+        start: 16.w,
+        end: 16.w,
+        top: 34.h,
       ),
       child: Row(
         children: [
            Text(
             text,
-            style: const TextStyle(
-              fontSize: 28,
+            style: TextStyle(
+              fontSize: 28.sp,
             ),
           ),
           const Spacer(),
@@ -33,7 +34,7 @@ class CustomAppBar extends StatelessWidget {
               onPressed: onPressed,
               icon: Icon(
                 icon,
-                size: 28,
+                size: 28.sp,
               ),
             ),
           ),
